@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        // setTimeout(function(){console.log("Khushal")}, 2000)
+
+        const sayName = () => {
+            console.log("Khushal")
+        }
+
+        const changeText = function() {
+            document.querySelector('h1').innerHTML = 'best JS series'
+        }
+
+        const changeMe = setTimeout(changeText, 2000)
+
+        document.querySelector('#stop').addEventListener('click', () => {
+            clearTimeout(changeMe)
+            console.log("Stoped")
+        } )
+
+
+
+        // ---> setInterval Function
+        const sayDate = function() {
+            console.log("Khushal", Date.now());
+        }
+
+        const intervalId = setInterval(sayDate, 1000)
+
+        clearInterval(intervalId)
+
+
+
+
+
+
+
+
+
+        function randomColor() {
+            const hex = "0123456789ABCDEF"
+            let color = "#"
+
+            for(let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random()*16)]
+            }
+            return color
+        }
+
+        // console.log(randomColor())
+
+        let intervalId
+
+        document.querySelector('.start').addEventListener('click', () => {
+            intervalId = setInterval(randomColor, 1000)
+        })
+
+        document.querySelector('.stop').addEventListener('click', () => {
+            clearInterval(intervalId) 
+        })
+    </script>    
+</body>
+</html>

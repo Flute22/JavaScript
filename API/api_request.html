@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #card {
+        width: 12rem;
+        height: 17rem;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+    }
+    
+    #circle {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        background-color: snow;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<body>
+
+    <div id="card">
+        <div id="circle">
+            <img src="#" alt="">
+        </div>
+    </div>
+
+    <script>
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState);
+            if(xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText)
+                console.log(data)
+                let circle = document.querySelector('#circle')
+                imgUrl = data.avatar_url
+                circle.innerHTML = imgUrl
+            }
+        }
+        xhr.send()
+    </script>
+</body>
+</html>
