@@ -254,4 +254,4 @@ function frequentChar(str) {
        
 }
 
-
+console.log(frequentChar("Hello"))
